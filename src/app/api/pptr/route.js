@@ -1,28 +1,29 @@
 // app/api/check-page/route.js
 
-import puppeteer from 'puppeteer'
-import puppeteerCore from 'puppeteer-core'
-import chromium from '@sparticuz/chromium'
+import chromium from "@sparticuz/chromium-min";
+
+import { Browser } from "puppeteer";
+import { Browser as CoreBrowser } from "puppeteer-core";
 export const dynamic = 'force-dynamic'
 
 async function checkPageStatus(url) {
-  let browser;
+  let browser
   let statusCode;
 
   try {
     if (process.env.VERCEL_ENV === 'production') {
-      const executablePath = await chromium.executablePath()
-      browser = await puppeteerCore.launch({
-        executablePath,
+
+      browser = await puppeteer.launch({
         args: chromium.args,
+        defaultViewport: chromium.defaultViewport,
+        executablePath: await chromium.executablePath(),
         headless: chromium.headless,
-        defaultViewport: chromium.defaultViewport
-      })
+      });
     } else {
       browser = await puppeteer.launch({
-        headless: 'new',
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
-      })
+        args: ["--no-sandbox", "--disable-setuid-sandbox"],
+        headless: "new"
+      });
     }
 
     const page = await browser.newPage();
