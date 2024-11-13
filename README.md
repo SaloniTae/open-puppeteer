@@ -1,5 +1,7 @@
 # OpenPuppeteer - Free Puppeteer as a Service
 
+https://www.openpuppeteer.com/
+
 OpenPuppeteer is a free service for running Puppeteer scripts. It's designed to simplify the process of using Puppeteer, a Node.js library for browser automation, and allows you to run Puppeteer as a service.
 
 ## Setup
