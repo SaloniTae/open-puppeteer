@@ -2,8 +2,8 @@
 
 import chromium from "@sparticuz/chromium-min";
 
-import { Browser } from "puppeteer";
-import { Browser as CoreBrowser } from "puppeteer-core";
+import puppeteer from 'puppeteer'
+import puppeteerCore from 'puppeteer-core'
 export const dynamic = 'force-dynamic'
 
 async function checkPageStatus(url) {
@@ -13,7 +13,7 @@ async function checkPageStatus(url) {
   try {
     if (process.env.VERCEL_ENV === 'production') {
 
-      browser = await puppeteer.launch({
+      browser = await puppeteerCore.launch({
         args: chromium.args,
         defaultViewport: chromium.defaultViewport,
         executablePath: await chromium.executablePath(),
@@ -55,7 +55,7 @@ export async function GET(request) {
   }
 
   const status = await checkPageStatus(url);
-  console.log(status, "reals");
+
 
   return new Response(JSON.stringify({
     statusCode: status ? 200 : 404,
