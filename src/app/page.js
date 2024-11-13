@@ -12,10 +12,7 @@ export default function Home() {
   useEffect(() => {
     setapiEndpoint(`${process.env.NEXT_PUBLIC_APP_DOMAIN}api/pptr?url=`);
   }, []);
-
-
   async function fetchPageStatus() {
-
     if (url === "") {
       alert("Enter valid url")
       return
@@ -36,9 +33,6 @@ export default function Home() {
       setIsLoading(false)
     }
   }
-
-
-
   return (
     <div className="container mx-auto flex flex-col items-center justify-center min-h-screen px-4 py-8">
 
@@ -79,9 +73,7 @@ export default function Home() {
                 </div> : 'Check Status'
               }
             </button>
-
           </div>
-
           <div className="bg-gray-100 p-4 rounded-lg flex items-center space-x-2 overflow-x-auto">
             <span className="text-green-600 font-semibold">GET</span>
             <code className="text-sm flex-grow text-black">{apiEndpoint}</code>
@@ -92,12 +84,9 @@ export default function Home() {
               }}
               className=' cursor-pointer'
               color='black' />
-
           </div>
         </div>
       </div>
-
-
     </div >
   )
 }
