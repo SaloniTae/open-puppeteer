@@ -17,7 +17,7 @@ async function checkPageStatus(url) {
     browser = await puppeteerCore.launch({
       args: chromium.args,
       defaultViewport: chromium.defaultViewport,
-      executablePath: await chromium.executablePath(),
+      executablePath: await chromium.executablePath(`https://github.com/Sparticuz/chromium/releases/download/v116`),
       headless: chromium.headless,
     });
 
