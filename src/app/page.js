@@ -43,7 +43,7 @@ export default function Home() {
         </a>
       </h1>
       <p className="text-xl text-center mb-8 text-gray-600">
-        Free Puppeteer as a Service
+        Free Puppeteer as a Service | Set up easily on Vercel.
       </p>
 
       <div className="w-full max-w-2xl">
