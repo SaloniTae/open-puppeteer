@@ -96,7 +96,7 @@ export default function Home() {
             <code className="text-sm flex-grow text-black">{apiEndpoint}{url}</code>
             <Copy
               onClick={() => {
-                navigator.clipboard.writeText(apiEndpoint);
+                navigator.clipboard.writeText(apiEndpoint + url);
                 alert("Copied");
               }}
               className=" cursor-pointer"
