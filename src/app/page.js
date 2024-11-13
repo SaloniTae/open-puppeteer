@@ -93,7 +93,7 @@ export default function Home() {
           </div>
           <div className="bg-gray-100 p-4 rounded-lg flex items-center space-x-2 overflow-x-auto">
             <span className="text-green-600 font-semibold">GET</span>
-            <code className="text-sm flex-grow text-black">{apiEndpoint}</code>
+            <code className="text-sm flex-grow text-black">{apiEndpoint}{url}</code>
             <Copy
               onClick={() => {
                 navigator.clipboard.writeText(apiEndpoint);
