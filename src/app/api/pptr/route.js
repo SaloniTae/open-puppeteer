@@ -6,7 +6,7 @@ import puppeteerCore from 'puppeteer-core'
 export const dynamic = 'force-dynamic'
 
 const remoteExecutablePath =
-  "https://github.com/Sparticuz/chromium/releases/download/v119.0.2/chromium-v119.0.2-pack.tar";
+  "https://github.com/Sparticuz/chromium/releases/download/v121.0.0/chromium-v121.0.0-pack.tar";
 
 async function checkPageStatus(url) {
   let browser
@@ -14,11 +14,11 @@ async function checkPageStatus(url) {
 
   try {
 
-    browser = await puppeteerCore.launch({
+    const browser = await puppeteerCore.launch({
       args: chromium.args,
-      defaultViewport: chromium.defaultViewport,
-      executablePath: await chromium.executablePath(`https://github.com/Sparticuz/chromium/releases/download/v116`),
-      headless: chromium.headless,
+      // See https://www.npmjs.com/package/@sparticuz/chromium#running-locally--headlessheadful-mode for local executable path 
+      executablePath: await chromium.executablePath(remoteExecutablePath),
+      headless: true,
     });
 
     const page = await browser.newPage();
