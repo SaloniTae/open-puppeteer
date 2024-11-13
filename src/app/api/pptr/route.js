@@ -14,8 +14,7 @@ async function checkPageStatus(url) {
   let statusCode;
 
   try {
-    if (process.env.VERCEL_ENV === 'production') {
-
+    if (process.env.NEXT_PUBLIC_VERCEL_ENVIRONMENT === 'production') {
       browser = await puppeteerCore.launch({
         args: chromium.args,
         defaultViewport: chromium.defaultViewport,
@@ -23,6 +22,7 @@ async function checkPageStatus(url) {
         headless: chromium.headless,
       });
     } else {
+
       browser = await puppeteer.launch({
         args: ["--no-sandbox", "--disable-setuid-sandbox"],
         headless: "new"

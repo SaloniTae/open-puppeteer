@@ -1,17 +1,21 @@
 'use client'
 
 import { Copy, LoaderCircle } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Home() {
   const [url, setUrl] = useState('')
   const [status, setStatus] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [apiEndpoint, setapiEndpoint] = useState(false)
 
-  const apiEndpoint = `https://pptr.opencrawler.in/api/pptr?url=`
+  useEffect(() => {
+    setapiEndpoint(`${process.env.NEXT_PUBLIC_APP_DOMAIN}api/pptr?url=`);
+  }, []);
 
 
   async function fetchPageStatus() {
+
     if (url === "") {
       alert("Enter valid url")
       return
@@ -19,7 +23,7 @@ export default function Home() {
     setStatus('')
     setIsLoading(true)
     try {
-      const response = await fetch(`https://pptr.opencrawler.in/api/pptr?url=${url}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_APP_DOMAIN}api/pptr?url=${url}`);
       const data = await response.json();
       const { is200 } = data;
       setStatus(is200 ? 200 : 404)
