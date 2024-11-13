@@ -6,6 +6,9 @@ import puppeteer from 'puppeteer'
 import puppeteerCore from 'puppeteer-core'
 export const dynamic = 'force-dynamic'
 
+const remoteExecutablePath =
+  "https://github.com/Sparticuz/chromium/releases/download/v119.0.2/chromium-v119.0.2-pack.tar";
+
 async function checkPageStatus(url) {
   let browser
   let statusCode;
@@ -16,7 +19,7 @@ async function checkPageStatus(url) {
       browser = await puppeteerCore.launch({
         args: chromium.args,
         defaultViewport: chromium.defaultViewport,
-        executablePath: await chromium.executablePath(),
+        executablePath: await chromium.executablePath(remoteExecutablePath),
         headless: chromium.headless,
       });
     } else {
