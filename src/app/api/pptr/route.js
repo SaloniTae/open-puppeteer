@@ -1,6 +1,6 @@
 import chromium from "@sparticuz/chromium-min";
 import puppeteerCore from "puppeteer-core";
-import puppeteer from "puppeteer";
+
 
 export const dynamic = "force-dynamic";
 
